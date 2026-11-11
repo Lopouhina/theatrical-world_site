@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация о театральных спектаклях">
+    <title>Спектакль — Театральный мир</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="js/favorites.js" defer></script>
+    <script src="js/performance.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body id="top" class="bg-light">
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow"
+         aria-label="Основная навигация">
+
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                Театральный мир
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Открыть меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalog.html">Спектакли</a></li>
+                    <li class="nav-item"><a class="nav-link" href="actors.html">Актёры</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favorites.html">Избранное</a></li>
+                    <li class="nav-item"><a class="nav-link" href="generators.html">Подбор спектакля</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">О проекте</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="pt-5">
+    <div class="container py-5">
+
+        <nav aria-label="Навигационная цепочка">
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="link-dark">Главная</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="catalog.html" class="link-dark">Спектакли</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page"
+                    id="breadcrumb-title">
+                    Спектакль
+                </li>
+            </ol>
+        </nav>
+
+        <div id="performance-details" class="row g-4 align-items-start mb-5">
+
+            <div class="col-12 col-md-5 col-lg-4">
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <img
+                        id="performance-image"
+                        src=""
+                        alt=""
+                        class="card-img-top img-fluid">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-7 col-lg-8">
+
+                <div class="card border-0 shadow-sm p-4 p-lg-5">
+
+                    <div class="card-body p-0">
+
+                        <span class="badge text-bg-warning mb-3"
+                              id="performance-genre">
+                            Жанр
+                        </span>
+
+                        <h1 class="display-5 fw-bold mb-4"
+                            id="performance-title">
+                            Название спектакля
+                        </h1>
+
+                        <p class="lead text-secondary mb-4"
+                           id="performance-description">
+                            Описание спектакля
+                        </p>
+
+                        <div class="row row-cols-1 row-cols-sm-2 g-3 mb-4">
+
+                            <div class="col">
+                                <div class="bg-light rounded p-3 h-100">
+                                    <span class="d-block text-secondary small mb-2">
+                                        Продолжительность
+                                    </span>
+                                    <strong id="performance-duration">—</strong>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="bg-light rounded p-3 h-100">
+                                    <span class="d-block text-secondary small mb-2">
+                                        Возрастное ограничение
+                                    </span>
+                                    <strong id="performance-age">—</strong>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="bg-light rounded p-3 h-100">
+                                    <span class="d-block text-secondary small mb-2">
+                                        Автор произведения
+                                    </span>
+                                    <strong id="performance-author">—</strong>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="bg-light rounded p-3 h-100">
+                                    <span class="d-block text-secondary small mb-2">
+                                        Страна происхождения
+                                    </span>
+                                    <strong id="performance-country">—</strong>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3">
+
+                            <a href="catalog.html" class="btn btn-dark">
+                                Вернуться в каталог
+                            </a>
+
+                            <button
+                                type="button"
+                                class="btn btn-outline-dark favorite-button"
+                                id="performance-favorite">
+                                ♡ В избранное
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="card border-0 shadow-sm mb-5">
+            <div class="card-body p-4 p-lg-5">
+
+                <h2 class="h3 fw-bold mb-4">
+                    О спектакле
+                </h2>
+
+                <p class="text-secondary lh-lg mb-0"
+                   id="performance-about"></p>
+
+            </div>
+        </section>
+
+        <section class="card border-0 shadow-sm">
+            <div class="card-body p-4 p-lg-5">
+
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+
+                    <div>
+                        <h2 class="h3 fw-bold mb-2">
+                            Отзывы зрителей
+                        </h2>
+
+                        <p class="text-secondary mb-0"
+                           id="performance-reviews-summary">
+                            Отзывы о спектакле
+                        </p>
+                    </div>
+
+                    <a href="#review-form" class="btn btn-dark">Оставить отзыв</a>
+
+                </div>
+
+                <div
+                    id="performance-reviews-list"
+                    class="d-grid gap-3">
+                </div>
+
+                <p
+                    id="performance-reviews-empty"
+                    class="alert alert-secondary mt-3 mb-0"
+                    hidden>
+                    Пока никто не оставил отзыв об этом спектакле.
+                    Вы можете стать первым!
+                </p>
+
+                <form id="review-form" class="mt-4 border-top pt-4">
+ <h3 class="h5 fw-bold mb-3">Ваш отзыв</h3>
+ <div id="review-message" class="alert" role="status" hidden></div>
+ <div class="row g-3"><div class="col-md-7"><label class="form-label" for="review-name">Ваше имя</label><input class="form-control" id="review-name" maxlength="60" required></div>
+ <div class="col-md-5"><label class="form-label" for="review-rating">Оценка</label><select class="form-select" id="review-rating" required><option value="5">5 — Отлично</option><option value="4">4 — Хорошо</option><option value="3">3 — Нормально</option><option value="2">2 — Не понравилось</option><option value="1">1 — Плохо</option></select></div>
+ <div class="col-12"><label class="form-label" for="review-text">Ваши впечатления</label><textarea class="form-control" id="review-text" rows="4" maxlength="1500" minlength="5" required></textarea></div>
+ <div class="col-12"><button class="btn btn-dark" type="submit">Опубликовать отзыв</button></div></div>
+</form>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+
+<footer class="bg-dark text-white py-5">
+ <div class="container">
+  <div class="row g-4">
+   <div class="col-lg-4"><h2 class="h4 fw-bold mb-3">👏Театральный мир</h2><p class="text-white-50">Информационный проект о спектаклях, жанрах и известных актёрах.</p><p class="text-white-50">Открой для себя мир театра!</p></div>
+   <div class="col-lg-5"><h2 class="h5 fw-bold mb-3">Навигация</h2><nav aria-label="Навигация в подвале"><div class="row row-cols-2 g-3">
+    <div class="col"><a class="link-light text-decoration-none" href="index.html">Главная</a></div>
+    <div class="col"><a class="link-light text-decoration-none" href="catalog.html">Спектакли</a></div>
+    <div class="col"><a class="link-light text-decoration-none" href="actors.html">Актёры</a></div>
+    <div class="col"><a class="link-light text-decoration-none" href="favorites.html">Избранное</a></div>
+    <div class="col"><a class="link-light text-decoration-none" href="generators.html">Подбор спектакля</a></div>
+    <div class="col"><a class="link-light text-decoration-none" href="about.html">О проекте</a></div>
+   </div></nav></div>
+   <div class="col-lg-3">
+    <h2 class="h5 fw-bold mb-3">Контакты</h2>
+    <p class="text-white-50 mb-2">Электронная почта:</p>
+    <p><a href="mailto:lipopo0904@mail.ru"
+            class="d-inline-flex align-items-center gap-2 link-light text-decoration-none">
+
+            <i class="bi bi-envelope-fill fs-5"></i>
+
+            <span>lipopo0904@mail.ru</span>
+
+        </a></p>
+    <p class="text-white-50 mb-2">Социальные сети:</p><div class="d-flex flex-column gap-3">
+    <a class="link-light text-decoration-none" href="https://t.me/y_e_ppp" target="_blank" rel="noopener noreferrer"><i class="bi bi-telegram me-2" aria-hidden="true"></i>Telegram</a>
+    <a class="link-light text-decoration-none" href="https://vk.ru/lopouska_e" target="_blank" rel="noopener noreferrer"><span class="badge rounded-2 bg-primary me-2" aria-hidden="true">VK</span>ВКонтакте</a>
+   </div></div>
+  </div><hr class="border-secondary my-4"><p class="text-white-50 text-center mb-0">© 2026 Театральный мир. Все права защищены.</p>
+ </div>
+</footer>
+
+
+<a href="#top"
+   class="btn btn-warning position-fixed bottom-0 end-0 m-4 rounded-circle shadow fs-4 fw-bold z-3"
+   aria-label="Вернуться наверх"
+   title="Наверх">
+    ^
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
