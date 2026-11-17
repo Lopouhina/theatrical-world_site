@@ -192,13 +192,15 @@ function sortPerformances(performances) {
     });
 }
 
+let visibleCount = 6;
+const showMoreButton = document.getElementById('catalog-show-more');
 function renderCatalog() {
     const filtered = catalogData.filter(matchesFilters);
     const sorted = sortPerformances(filtered);
 
     const fragment = document.createDocumentFragment();
 
-    sorted.forEach(performance => {
+    sorted.slice(0, visibleCount).forEach(performance => {
         const column = cards.get(performance.id);
 
         if (column) {
@@ -209,6 +211,10 @@ function renderCatalog() {
     catalogGrid.replaceChildren(fragment);
 
     resultsCount.textContent = sorted.length;
+    if (showMoreButton) {
+        showMoreButton.hidden = sorted.length <= visibleCount;
+        showMoreButton.textContent = `Показать ещё (${sorted.length - visibleCount})`;
+    }
     catalogEmpty.hidden = sorted.length > 0;
 }
 
@@ -232,8 +238,10 @@ function applyGenreFromUrl() {
     }
 }
 
-filtersForm.addEventListener("input", renderCatalog);
-filtersForm.addEventListener("change", renderCatalog);
+showMoreButton?.addEventListener('click', () => { visibleCount += 3; renderCatalog(); window.showTheaterToast?.('Загружены дополнительные спектакли'); });
+function resetCatalogLimit() { visibleCount = 6; renderCatalog(); }
+filtersForm.addEventListener("input", resetCatalogLimit);
+filtersForm.addEventListener("change", resetCatalogLimit);
 
 filtersForm.addEventListener("reset", () => {
     window.history.replaceState(
@@ -242,10 +250,10 @@ filtersForm.addEventListener("reset", () => {
         window.location.pathname
     );
 
-    requestAnimationFrame(renderCatalog);
+    requestAnimationFrame(resetCatalogLimit);
 });
 
-sortSelect.addEventListener("change", renderCatalog);
+sortSelect.addEventListener("change", resetCatalogLimit);
 
 window.addEventListener("hashchange", () => {
     genreSelect.value = "";

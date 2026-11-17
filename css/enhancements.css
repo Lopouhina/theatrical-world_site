@@ -1,0 +1,73 @@
+/* КР3: оформление интерфейсных доработок */
+:root { color-scheme: light; }
+html { transition: background-color .3s ease, color .3s ease; }
+body, .card, .navbar, .btn, .form-control, .form-select, .alert, footer, .bg-light, .bg-white, .bg-dark { transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
+.theme-switch { font-size: .85rem; white-space: nowrap; }
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body, html[data-theme="dark"] .bg-light { background-color: #17131a !important; color: #f3edf2 !important; }
+html[data-theme="dark"] .card, html[data-theme="dark"] .bg-white { background-color: #29202c !important; color: #f3edf2 !important; }
+html[data-theme="dark"] .text-secondary { color: #c8b9c7 !important; }
+html[data-theme="dark"] .navbar, html[data-theme="dark"] footer, html[data-theme="dark"] .bg-dark { background-color: #100c13 !important; }
+html[data-theme="dark"] .form-control, html[data-theme="dark"] .form-select { background-color: #332937; color: #fff; border-color: #65556a; }
+html[data-theme="dark"] .btn-outline-dark { border-color: #e3d4df; color: #f4eaf2; }
+html[data-theme="dark"] .btn-outline-dark:hover { background-color: #eee; color: #161016; }
+html[data-theme="dark"] .alert-secondary { background-color: #332937; color: #f3edf2; border-color: #65556a; }
+.theater-toast-host { position: fixed; right: 18px; top: 85px; z-index: 3000; display: grid; gap: 10px; max-width: min(360px, calc(100vw - 36px)); }
+.theater-toast { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #541c2b; color: #fff; padding: 13px 16px; border-radius: 12px; box-shadow: 0 8px 28px #0004; animation: toastIn .25s ease; }
+.theater-toast-warning { background: #825420; }
+.theater-toast button { border: 0; background: transparent; color: inherit; font-size: 23px; line-height: 1; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.quiz-option { display: block; width: 100%; text-align: left; margin: 9px 0; padding: 12px 15px; border: 1px solid #b9a8b1; border-radius: 10px; background: transparent; color: inherit; }
+.quiz-option:hover, .quiz-option:focus-visible { border-color: #b78032; background: #b7803220; }
+.quiz-progress { height: 7px; border-radius: 8px; background: #d8d0d6; overflow: hidden; }
+.quiz-progress > div { height: 100%; background: #b78032; transition: width .25s ease; }
+.quiz-result-image { max-height: 260px; object-fit: contain; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* КР3: более заметные кнопки в тёмной теме */
+html[data-theme="dark"] .btn-dark,
+html[data-theme="dark"] .button--primary {
+  background-color: #824052 !important;
+  border-color: #d9ac69 !important;
+  color: #fff8ee !important;
+}
+html[data-theme="dark"] .btn-dark:hover,
+html[data-theme="dark"] .button--primary:hover {
+  background-color: #a34e65 !important;
+  border-color: #f0cb8d !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 2px rgba(240,203,141,.22);
+}
+html[data-theme="dark"] .btn-outline-dark {
+  border: 1.5px solid #e9c58e !important;
+  color: #f5dcaf !important;
+  background-color: #392635 !important;
+}
+html[data-theme="dark"] .btn-outline-dark:hover,
+html[data-theme="dark"] .btn-outline-dark:focus-visible {
+  background-color: #e9c58e !important;
+  border-color: #e9c58e !important;
+  color: #271620 !important;
+}
+html[data-theme="dark"] .btn-warning {
+  background-color: #e9c58e !important;
+  border-color: #e9c58e !important;
+  color: #271620 !important;
+}
+html[data-theme="dark"] .btn-warning:hover { background-color: #f3d7a5 !important; }
+.theme-switch {
+  border: 1px solid rgba(85,28,43,.25) !important;
+  transition: background-color .5s ease, color .5s ease, border-color .5s ease, box-shadow .5s ease, transform .25s ease !important;
+}
+.theme-switch:hover { transform: translateY(-2px); box-shadow: 0 0 16px rgba(233,197,142,.5) !important; }
+.theme-switch:active { transform: scale(.96); }
+.theme-switch .bi { display: inline-block; margin-right: .25rem; }
+.theme-switch.theme-switch--animate .bi { animation: themeIconSpin .55s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes themeIconSpin {
+  0% { transform: rotate(-110deg) scale(.65); opacity: .35; }
+  65% { transform: rotate(18deg) scale(1.16); opacity: 1; }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-switch, .theme-switch .bi { animation: none !important; transition: none !important; }
+}

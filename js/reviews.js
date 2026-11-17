@@ -246,6 +246,7 @@ reviewForm.addEventListener("submit", event => {
     reviewsFilter.value = performance;
 
     showReviewMessage("Ваш отзыв успешно опубликован!");
+    window.showTheaterToast?.("Отзыв успешно опубликован");
 
     renderReviews();
 });

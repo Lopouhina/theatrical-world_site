@@ -82,6 +82,7 @@ function toggleFavorite(id) {
         : [...favorites, id];
 
     saveFavorites(updated);
+    window.showTheaterToast?.(updated.includes(id) ? `«${performancesData[id].title}» добавлен в избранное` : `«${performancesData[id].title}» удалён из избранного`);
     updateFavoriteButtons();
     renderFavorites();
 }
@@ -134,7 +135,9 @@ function renderFavorites() {
 
     grid.replaceChildren();
 
-    favorites.forEach(id => {
+    const order = document.getElementById('favorites-sort')?.value || 'added';
+    const sortedFavorites = [...favorites].sort((a, b) => order === 'title' ? performancesData[a].title.localeCompare(performancesData[b].title, 'ru') : order === 'genre' ? performancesData[a].genre.localeCompare(performancesData[b].genre, 'ru') : 0);
+    sortedFavorites.forEach(id => {
         const performance = performancesData[id];
 
         const column = document.createElement("div");
@@ -202,6 +205,7 @@ document.getElementById("clear-favorites")?.addEventListener(
     () => {
         if (confirm("Очистить всё избранное?")) {
             saveFavorites([]);
+            window.showTheaterToast?.('Избранное очищено');
             updateFavoriteButtons();
             renderFavorites();
         }
@@ -217,3 +221,5 @@ window.addEventListener("storage", event => {
 
 updateFavoriteButtons();
 renderFavorites();
+
+document.getElementById("favorites-sort")?.addEventListener("change", renderFavorites);
